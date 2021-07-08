@@ -7,7 +7,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.unigo.Adapter.UniAdapter
-import com.example.unigo.Models.University
+import com.example.unigo.Model.University
+
+
 import com.example.unigo.ViewModel.UniViewModel
 
 class MainActivity : AppCompatActivity() {

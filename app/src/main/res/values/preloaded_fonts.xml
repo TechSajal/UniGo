@@ -2,5 +2,7 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/bungee</item>
+        <item>@font/bungee_inline</item>
+        <item>@font/montserrat_alternates_bold</item>
     </array>
 </resources>

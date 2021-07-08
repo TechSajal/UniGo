@@ -1,17 +1,18 @@
 package com.example.unigo.Adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.unigo.Models.University
+import com.example.unigo.Model.University
 import com.example.unigo.R
+import com.example.unigo.UniInfmActivity
 
-class UniAdapter(val mContext:Context,val unilist:List<University>): RecyclerView.Adapter<UniViewHolder>() {
+class UniAdapter(val mContext:Context, val unilist: List<University>): RecyclerView.Adapter<UniViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UniViewHolder {
         val view = LayoutInflater.from(mContext).inflate(R.layout.layout,parent,false)
         return UniViewHolder(view)
@@ -20,7 +21,15 @@ class UniAdapter(val mContext:Context,val unilist:List<University>): RecyclerVie
     override fun onBindViewHolder(holder: UniViewHolder, position: Int) {
         val uri = unilist[position]
         holder.uniname.text = uri.name
-        holder.unistate.text = uri.stateprovince
+        holder.unistate.text = uri.state_province
+        holder.linearLayout.setOnClickListener {
+            val i = Intent(mContext,UniInfmActivity::class.java)
+            i.putExtra("name",uri.name)
+            i.putExtra("stateprovince",uri.state_province)
+             i.putExtra("country",uri.country)
+            mContext.startActivity(i)
+
+        }
     }
 
     override fun getItemCount(): Int {
